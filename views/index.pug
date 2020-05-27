@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    script.
+        function clearDictated() {
+            document.getElementById('dictated').hidden = true;
+        }
+
+        function convertToAudio() {
+            clearDictated();
+            document.getElementById('sonatine').hidden = false;
+        }
+
+        function clearContents(element) {
+            element.value = '';
+        }
+
+    h1= title
+    p Welcome to #{title}.
+    textarea(id='dictated', placeholder='Initial text here...')
+    audio(id='sonatine' controls='' autoplay='' hidden=true)
+        source(src='/audio/ravel_sonatine_1.mp3', type='audio/mp3')
+    button(id='submit' onclick="convertToAudio()") Submit
+
+
+
